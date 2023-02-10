@@ -1,12 +1,21 @@
 import React from 'react';
+import { BrowserRouter as Router,Routes, Route } from 'react-router-dom';
+
 // import logo from './logo.svg';
 import './App.css';
-import Routes from './routes';
+import Login from './pages/Auth/Login';
+
 
 function App() {
-  return (
-    <Routes/>
-  );
+  return(
+    <Router>
+      <Routes>
+        
+        <Route path='/Login' element ={<Login/>}/>
+        <Route path='/Main' />
+      </Routes>
+    </Router>
+  )
 }
 
 export default App;
