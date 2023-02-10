@@ -1,8 +1,10 @@
+Fronte End
 #  Description
     This project manages individual and team schedule by showing calendar.
 ----------
 
 # Requirement
+🤵🏻Individual requirements
 
    1. Auth Page
    -  desrciption:
@@ -27,7 +29,7 @@
                 functional:
                     1. Show all users in group
                     2. Show schedule only checked user
-                    3. third
+  
                    
         > Main
 
@@ -45,6 +47,9 @@
              Manage Users
              
              Allow user to enter group.
+
+        >Skills
+            React,Typescript,Redux
             
                 
    
