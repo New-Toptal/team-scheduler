@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Routes,Route} from 'react-router-dom'
 // import logo from './logo.svg';
 
 import './App.css';
+import Home from './pages/Auth/Home';
 import Register from './pages/Auth/Register';
 import SingUp from './pages/Auth/SignUp';
 
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path='/' element={<SingUp/>}/>
         <Route path='/signin' element={<Register/>}/>
+        <Route path='/home' element={<Home/>}/>
       </Routes>
     </Router>
   );
