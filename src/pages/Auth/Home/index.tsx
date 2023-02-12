@@ -83,14 +83,49 @@ const Home: React.FC = () => {
                             </div>
 
                         </div>
-                        <main className='grow-0 w-full h-full'>
+                        <main className='grow-0 w-full'>
+                            <table>
+                            <thead>
+          <tr>
+            <th className="p-2 border-r h-10 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 xl:text-sm text-xs">
+              <span className="xl:block lg:block md:block sm:block hidden">Sunday</span>
+             
+            </th>
+            <th className="p-2 border-r h-10 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 xl:text-sm text-xs">
+              <span className="xl:block lg:block md:block sm:block hidden">Monday</span>
+ 
+            </th>
+            <th className="p-2 border-r h-10 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 xl:text-sm text-xs">
+              <span className="xl:block lg:block md:block sm:block hidden">Tuesday</span>
+           
+            </th>
+            <th className="p-2 border-r h-10 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 xl:text-sm text-xs">
+              <span className="xl:block lg:block md:block sm:block hidden">Wednesday</span>
+          
+            </th>
+            <th className="p-2 border-r h-10 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 xl:text-sm text-xs">
+              <span className="xl:block lg:block md:block sm:block hidden">Thursday</span>
+           
+            </th>
+            <th className="p-2 border-r h-10 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 xl:text-sm text-xs">
+              <span className="">Friday</span>
+             
+            </th>
+            <th className="p-2 border-r h-10 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 xl:text-sm text-xs">
+              <span className="xl:block lg:block md:block sm:block hidden">Saturday</span>
+          
+            </th>
+          </tr>
+        </thead>
 
-
+                            </table>
+                           {/* Add Calendar component */}
                         </main>
                         {/* Task Box */}
                         <div className='w-1/12 m-2'>
                             <div className="flex flex-col w-full h-full shadow-lg   bg-transparent bg-white-300 px-2 py-6">
                                 {/* Add Task */}
+                      
                                 <div className='mx-auto'>
                                     <button className='w-[10] h-[10] text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900'>Add Task</button>
 
@@ -104,6 +139,10 @@ const Home: React.FC = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+                {/* Task Input Modal */}
+                <div>
+                    
                 </div>
                 <footer className='w-full'>
                     <div className=''>
