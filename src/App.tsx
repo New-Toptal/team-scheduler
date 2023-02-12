@@ -1,25 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
+import {BrowserRouter as Router, Routes,Route} from 'react-router-dom'
+import "@mobiscroll/react/dist/css/mobiscroll.min.css";
+// import logo from './logo.svg';
+
 import './App.css';
+import Home from './pages/Auth/Home';
+import Register from './pages/Auth/Register';
+import SingUp from './pages/Auth/SignUp';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          <h1>sdf</h1>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<SingUp/>}/>
+        <Route path='/signin' element={<Register/>}/>
+        <Route path='/home' element={<Home/>}/>
+      </Routes>
+    </Router>
   );
 }
 
