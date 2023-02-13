@@ -1,8 +1,17 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Calendar from '../../../components/Calendar';
+import InputModal from '../../../components/InputModal';
 
 
 const Home: React.FC = () => {
+    const hideDisplay = () => {
+        setDisplay(false);
+        console.log('sss')
+    }
+    const [display, setDisplay] = useState(false);
+    const showInputModal = () => {
+        setDisplay(true)
+    }
     return (
         <div className='box-border w-screen h-screen'>
             <div className="flex flex-col  items-center box-border w-full h-full px-4 py-6">
@@ -86,7 +95,7 @@ const Home: React.FC = () => {
 
                         </div>
                         <main className='grow-0 w-full overflow-y-auto'>
-                            <Calendar/>                            
+                            <Calendar />
                             {/* Change Component */}
                             <table>
                                 <thead>
@@ -131,7 +140,7 @@ const Home: React.FC = () => {
                                 {/* Add Task */}
 
                                 <div className='mx-auto'>
-                                    <button className='w-[10] h-[10] text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900'>Add Task</button>
+                                    <button onClick={showInputModal} className='w-[10] h-[10] text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900'>Add Task</button>
 
                                 </div>
                                 {/* Add User */}
@@ -144,10 +153,14 @@ const Home: React.FC = () => {
                         </div>
                     </div>
                 </div>
+
                 {/* Task Input Modal */}
+                <div>
+                    <InputModal display={display} setDisplay={hideDisplay} />
+                </div>
                 {/* Component */}
                 <div>
-                  
+
                 </div>
                 <footer className='w-full'>
                     <div className=''>
