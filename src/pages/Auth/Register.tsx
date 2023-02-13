@@ -1,23 +1,26 @@
 import React, { useState, useEffect } from 'react';
-const Register = () => {
+const Register:React.FC = () => {
     const [user, SetUer] = useState({
-        username: '',
-        email: '',
-        password: ''
+        username: String,
+        email: String,
+        password: String
 
     });
+    const registerUser = () => {
+        
+    }
     const handleChange = (event: any) => {
-       
+       SetUer({...user,[event.target.name]:event.target.value})
     }
     return (<>
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="px-8 py-6 mt-4 w-2/6 text-left bg-white shadow-lg">
                 <h3 className="text-2xl font-bold text-center">Create your account</h3>
-                <form action="" onChange={handleChange}>
+                <form action="" onSubmit={registerUser} onChange={handleChange}>
                     <div className="mt-4">
                         <div>
                             <label className="block" htmlFor="email">Username</label>
-                            <input type="text" name='username' placeholder="Username"
+                            <input type="text" name='username'  placeholder="Username"
                                 className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600" />
                         </div>
                         <div className="mt-4">
