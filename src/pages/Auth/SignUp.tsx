@@ -1,7 +1,7 @@
 import React from 'react'
 const SingUp = () => {
     const clickLogin = () => {
-
+        console.log('clicek')
     }
     return (<>
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
