@@ -131,7 +131,8 @@ const Home: React.FC = () => {
                             </div>
 
                         </div>
-                        <main className='grow-0 w-full overflow-y-auto'>
+                    
+                        <main id='event' className='grow-0 w-full overflow-scroll'>
                             <Calendar taskInfo={taskInfo} />
                             {/* Change Component */}
                             <table>
