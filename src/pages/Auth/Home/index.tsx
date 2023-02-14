@@ -1,12 +1,49 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import Calendar from '../../../components/Calendar';
 import InputModal from '../../../components/InputModal';
-
-
+// interface taskIterface {
+    //     title: String,
+    //     startDate: String,
+    //     endDate: String,
+    //     description: String,
+    // }
+    const myData = [{
+        title: 'Fixed event',
+        start: '2023-02-13T06:00',
+        end: '2023-02-13T09:00',
+        color: '#9e9e9e',
+        editable: false
+    }, {
+        title: 'Fixed event',
+        start: '2023-02-14T12:00',
+        end: '2023-02-14T14:00',
+        color: '#9e9e9e',
+        editable: false
+    }, {
+        title: 'Tech call',
+        start: '2023-02-12T11:00',
+        end: '2023-02-12T15:00',
+        color: '#cc9900'
+    }];                      
 const Home: React.FC = () => {
+    const [taskInfo,setTaskInfo] = useState([{}]);
+    useEffect(() => {
+      setTaskInfo(myData);
+    }, [])
+    interface taskIterface {
+        title: String,
+        startDate: String,
+        endDate: String,
+        description: String,
+    }
     const hideDisplay = () => {
         setDisplay(false);
-        console.log('sss')
+    }
+    const createNewTask = (task:taskIterface) => {
+        const {startDate:start,endDate:end,...rest} = task;
+        const new_obj = {start,end,...rest};
+        setTaskInfo([...taskInfo,new_obj]);
+        console.log(taskInfo);
     }
     const [display, setDisplay] = useState(false);
     const showInputModal = () => {
@@ -95,7 +132,7 @@ const Home: React.FC = () => {
 
                         </div>
                         <main className='grow-0 w-full overflow-y-auto'>
-                            <Calendar />
+                            <Calendar taskInfo={taskInfo} />
                             {/* Change Component */}
                             <table>
                                 <thead>
@@ -156,7 +193,7 @@ const Home: React.FC = () => {
 
                 {/* Task Input Modal */}
                 <div>
-                    <InputModal display={display} setDisplay={hideDisplay} />
+                    <InputModal display={display} setDisplay={hideDisplay} inputTask={createNewTask} />
                 </div>
                 {/* Component */}
                 <div>
