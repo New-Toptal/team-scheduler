@@ -50,7 +50,7 @@ const Home: React.FC = () => {
         setDisplay(true)
     }
     return (
-        <div className='box-border  max-w-screen-xl w-screen h-screen'>
+        <div className='box-border  max-w-screen h-screen'>
             <div className="flex flex-col  items-center box-border w-full h-full px-4 py-6">
                 <header className='w-full grid grid-cols-3 h-10 items-center'>
                     <div className='items-center'>
