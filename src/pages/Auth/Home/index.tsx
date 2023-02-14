@@ -1,8 +1,54 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
 import Calendar from '../../../components/Calendar';
-
-
+import InputModal from '../../../components/InputModal';
+// interface taskIterface {
+    //     title: String,
+    //     startDate: String,
+    //     endDate: String,
+    //     description: String,
+    // }
+    const myData = [{
+        title: 'Fixed event',
+        start: '2023-02-13T06:00',
+        end: '2023-02-13T09:00',
+        color: '#9e9e9e',
+        editable: false
+    }, {
+        title: 'Fixed event',
+        start: '2023-02-14T12:00',
+        end: '2023-02-14T14:00',
+        color: '#9e9e9e',
+        editable: false
+    }, {
+        title: 'Tech call',
+        start: '2023-02-12T11:00',
+        end: '2023-02-12T15:00',
+        color: '#cc9900'
+    }];                      
 const Home: React.FC = () => {
+    const [taskInfo,setTaskInfo] = useState([{}]);
+    useEffect(() => {
+      setTaskInfo(myData);
+    }, [])
+    interface taskIterface {
+        title: String,
+        startDate: String,
+        endDate: String,
+        description: String,
+    }
+    const hideDisplay = () => {
+        setDisplay(false);
+    }
+    const createNewTask = (task:taskIterface) => {
+        const {startDate:start,endDate:end,...rest} = task;
+        const new_obj = {start,end,...rest};
+        setTaskInfo([...taskInfo,new_obj]);
+        console.log(taskInfo);
+    }
+    const [display, setDisplay] = useState(false);
+    const showInputModal = () => {
+        setDisplay(true)
+    }
     return (
         <div className='box-border w-screen h-screen'>
             <div className="flex flex-col  items-center box-border w-full h-full px-4 py-6">
@@ -85,8 +131,9 @@ const Home: React.FC = () => {
                             </div>
 
                         </div>
-                        <main className='grow-0 w-full overflow-y-auto'>
-                            <Calendar/>                            
+                    
+                        <main id='event' className='grow-0 w-full overflow-scroll'>
+                            <Calendar taskInfo={taskInfo} />
                             {/* Change Component */}
                             <table>
                                 <thead>
@@ -131,12 +178,12 @@ const Home: React.FC = () => {
                                 {/* Add Task */}
 
                                 <div className='mx-auto'>
-                                    <button className='w-[10] h-[10] text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900'>Add Task</button>
+                                    <button onClick={showInputModal} className='hover:animate-bounce w-[10] h-[10] text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900'>Add Task</button>
 
                                 </div>
                                 {/* Add User */}
                                 <div>
-                                    <button className='w-[10] h-[10] text-white bg-pink-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900'>Add User</button>
+                                    <button className='w-[10] h-[10] text-white bg-pink-700 hover:bg-purple-800 hover:animate-bounce focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900'>Add User</button>
 
                                 </div>
 
@@ -144,10 +191,14 @@ const Home: React.FC = () => {
                         </div>
                     </div>
                 </div>
+
                 {/* Task Input Modal */}
+                <div className=''>
+                    <InputModal display={display} setDisplay={hideDisplay} inputTask={createNewTask} />
+                </div>
                 {/* Component */}
                 <div>
-                  
+
                 </div>
                 <footer className='w-full'>
                     <div className=''>
