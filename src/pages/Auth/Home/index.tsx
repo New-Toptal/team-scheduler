@@ -177,12 +177,12 @@ const Home: React.FC = () => {
                                 {/* Add Task */}
 
                                 <div className='mx-auto'>
-                                    <button onClick={showInputModal} className='w-[10] h-[10] text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900'>Add Task</button>
+                                    <button onClick={showInputModal} className='hover:animate-bounce w-[10] h-[10] text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900'>Add Task</button>
 
                                 </div>
                                 {/* Add User */}
                                 <div>
-                                    <button className='w-[10] h-[10] text-white bg-pink-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900'>Add User</button>
+                                    <button className='w-[10] h-[10] text-white bg-pink-700 hover:bg-purple-800 hover:animate-bounce focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900'>Add User</button>
 
                                 </div>
 
@@ -192,7 +192,7 @@ const Home: React.FC = () => {
                 </div>
 
                 {/* Task Input Modal */}
-                <div>
+                <div className=''>
                     <InputModal display={display} setDisplay={hideDisplay} inputTask={createNewTask} />
                 </div>
                 {/* Component */}
