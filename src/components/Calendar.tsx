@@ -1,40 +1,18 @@
 
 import React from 'react'
 import { Eventcalendar, setOptions,getJson, toast, MbscCalendarEvent, MbscEventcalendarView } from '@mobiscroll/react';
+// move type description to config file
+interface taskIterface {
+    title: String,
+    startDate: String,
+    endDate: String,
+    description: String,
+}
+// 
 
+// change type taskinfo:any to array<interface>
 
-const myData = [{
-    title: 'Fixed event',
-    start: '2023-02-13T06:00',
-    end: '2023-02-13T09:00',
-    color: '#9e9e9e',
-    editable: false
-}, {
-    title: 'Fixed event',
-    start: '2023-02-14T12:00',
-    end: '2023-02-14T14:00',
-    color: '#9e9e9e',
-    editable: false
-}, {
-    title: 'Tech call',
-    start: '2023-02-12T11:00',
-    end: '2023-02-12T15:00',
-    color: '#cc9900'
-}];                          
-<Eventcalendar
-    view={{
-        schedule: { type: 'week' }
-    }}
-    data={myData}
-    // clickToCreate={true}
-    // dragToCreat={true}
-    // dragToMove={true}
-    // dragToResize={true}
-    dragTimeStep={15}
-    eventDelete={true}
-/>
-
-const Calendar = () => {
+const Calendar = ({taskInfo}:{taskInfo:any}) => {
     const view = React.useMemo<MbscEventcalendarView>(() => {
         return {
             schedule: { type: 'week' }
@@ -50,7 +28,7 @@ const Calendar = () => {
             themeVariant="light"
             clickToCreate={true}
             dragToMove={true}
-            data={myData}
+            data={taskInfo}
             view={view}
           
        />
